@@ -1,0 +1,127 @@
+import type { RouteItem } from "@/types";
+
+export const routes: RouteItem[] = [
+  {
+    slug: "delhi-to-jaipur",
+    from: "Delhi",
+    to: "Jaipur",
+    distanceKm: 280,
+    duration: "5 Hrs",
+    startingPrice: 3500,
+    driverAllowance: 3500,
+    sampleNote: "One-way fare starts at the displayed amount; final pricing depends on pickup point, vehicle and travel date",
+    description: "A popular North India corridor for weekend breaks, family trips and business travel.",
+    popular: true,
+  },
+  {
+    slug: "mumbai-to-pune",
+    from: "Mumbai",
+    to: "Pune",
+    distanceKm: 150,
+    duration: "3.5 Hrs",
+    startingPrice: 2500,
+    driverAllowance: 3500,
+    sampleNote: "One-way fare starts at the displayed amount; tolls and route-specific charges are confirmed with your quote",
+    description: "A convenient expressway connection for business travel, airport links and weekend journeys.",
+    popular: true,
+  },
+  {
+    slug: "delhi-to-agra",
+    from: "Delhi",
+    to: "Agra",
+    distanceKm: 230,
+    duration: "3.5 Hrs",
+    startingPrice: 3000,
+    driverAllowance: 3500,
+    sampleNote: "One-way fare starts at the displayed amount; sightseeing plans can be added when requesting a quote",
+    description: "A classic tourist route for Taj Mahal day trips, hotel transfers and overnight stays.",
+    popular: true,
+  },
+  {
+    slug: "bangalore-to-mysore",
+    from: "Bangalore",
+    to: "Mysore",
+    distanceKm: 145,
+    duration: "3 Hrs",
+    startingPrice: 2800,
+    driverAllowance: 3500,
+    sampleNote: "One-way fare starts at the displayed amount; vehicle choice and pickup location affect the final quote",
+    description: "A popular South India route for heritage visits, family holidays and weekend travel.",
+    popular: true,
+  },
+  {
+    slug: "delhi-airport-to-gurgaon",
+    from: "Delhi Airport",
+    to: "Gurgaon",
+    distanceKm: 30,
+    duration: "45 Min",
+    startingPrice: 900,
+    driverAllowance: 3500,
+    sampleNote: "Airport transfer fares depend on terminal, pickup time, vehicle and exact destination",
+    description: "A direct airport transfer option for Gurgaon hotels, homes and business districts.",
+    popular: true,
+  },
+  {
+    slug: "chennai-to-pondicherry",
+    from: "Chennai",
+    to: "Pondicherry",
+    distanceKm: 160,
+    duration: "3.5 Hrs",
+    startingPrice: 3200,
+    driverAllowance: 3500,
+    sampleNote: "One-way fare starts at the displayed amount; stops and extended waiting are quoted separately",
+    description: "A scenic coastal route for weekend getaways, resort transfers and family holidays.",
+  },
+  {
+    slug: "hyderabad-to-vijayawada",
+    from: "Hyderabad",
+    to: "Vijayawada",
+    distanceKm: 275,
+    duration: "5 Hrs",
+    startingPrice: 4000,
+    driverAllowance: 3500,
+    sampleNote: "One-way fare starts at the displayed amount; final pricing reflects pickup point and vehicle category",
+    description: "A well-connected intercity route for family, business and onward travel.",
+  },
+  {
+    slug: "ahmedabad-to-udaipur",
+    from: "Ahmedabad",
+    to: "Udaipur",
+    distanceKm: 260,
+    duration: "5 Hrs",
+    startingPrice: 3800,
+    driverAllowance: 3500,
+    sampleNote: "One-way fare starts at the displayed amount; final pricing is confirmed before booking",
+    description: "A popular Rajasthan leisure corridor connecting Ahmedabad with Udaipur.",
+  },
+];
+
+export const popularRoutes = routes.filter((r) => r.popular);
+
+export function getRouteBySlug(slug: string) {
+  return routes.find((r) => r.slug === slug);
+}
+
+export const pickupOptions = [
+  "Delhi",
+  "Mumbai",
+  "Bangalore",
+  "Hyderabad",
+  "Chennai",
+  "Pune",
+  "Ahmedabad",
+  "Delhi Airport",
+  "Other (mention in notes)",
+];
+
+export const destinationOptions = [
+  "Jaipur",
+  "Pune",
+  "Agra",
+  "Mysore",
+  "Gurgaon",
+  "Pondicherry",
+  "Goa",
+  "Udaipur",
+  "Other (mention in notes)",
+];

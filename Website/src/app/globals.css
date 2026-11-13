@@ -1,0 +1,339 @@
+@import "tailwindcss";
+
+:root {
+  --bg-main: #0a0a0b;
+  --bg-secondary: #111827;
+  --bg-card: #161b22;
+  --orange: #e11d2e;
+  --orange-secondary: #ff2d3f;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --text-main: #ffffff;
+  --text-secondary: #c5cee0;
+  --border: #2a3344;
+  --input-bg: #f7f9fc;
+}
+
+@theme inline {
+  --color-bg-main: #0a0a0b;
+  --color-bg-secondary: #111827;
+  --color-bg-card: #161b22;
+  --color-orange: #e11d2e;
+  --color-orange-secondary: #ff2d3f;
+  --color-blue: #2563eb;
+  --color-blue-dark: #1d4ed8;
+  --color-text-main: #ffffff;
+  --color-text-secondary: #c5cee0;
+  --color-border: #2a3344;
+  --color-input-bg: #f7f9fc;
+  --font-sans: var(--font-display);
+  --font-display: var(--font-display);
+}
+
+/* Hard fallbacks — ensure dark surfaces always paint even if @theme fails */
+.bg-bg-main {
+  background-color: #0a0a0b !important;
+}
+.bg-bg-secondary {
+  background-color: #111827 !important;
+}
+.bg-bg-card {
+  background-color: #161b22 !important;
+}
+.text-text-main {
+  color: #ffffff !important;
+}
+.text-text-secondary {
+  color: #c5cee0 !important;
+}
+.border-border {
+  border-color: #2a3344 !important;
+}
+.text-orange {
+  color: #e11d2e !important;
+}
+.bg-orange {
+  background-color: #e11d2e !important;
+}
+.hover\:bg-orange-secondary:hover {
+  background-color: #ff2d3f !important;
+}
+.bg-orange-secondary {
+  background-color: #ff2d3f !important;
+}
+.text-blue {
+  color: #2563eb !important;
+}
+.bg-blue {
+  background-color: #2563eb !important;
+}
+.border-blue {
+  border-color: #2563eb !important;
+}
+.hover\:bg-blue:hover {
+  background-color: #2563eb !important;
+}
+.hover\:text-blue:hover {
+  color: #2563eb !important;
+}
+.hover\:text-orange:hover {
+  color: #e11d2e !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0b !important;
+  color: #ffffff;
+  font-family: var(--font-display), "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, #2563eb 45%, transparent);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container-site {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container-site {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-site {
+    padding-inline: 2rem;
+  }
+}
+
+/* CMS article body */
+.blog-content {
+  width: 100%;
+  max-width: 42rem;
+  color: #d5dbe8;
+  font-size: 1.0125rem;
+  line-height: 1.85;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.blog-content > *:first-child {
+  margin-top: 0;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-top: 1.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.blog-content h1 {
+  font-size: 1.4rem;
+}
+
+.blog-content h2 {
+  font-size: 1.25rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #2a3344;
+}
+
+.blog-content h3 {
+  font-size: 1.1rem;
+}
+
+.blog-content h4 {
+  font-size: 1.02rem;
+  color: #f3f4f6;
+}
+
+.blog-content p {
+  margin: 0.85rem 0;
+}
+
+.blog-content a {
+  color: #e11d2e;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin: 0.9rem 0;
+  padding-left: 1.35rem;
+}
+
+.blog-content ul {
+  list-style: disc;
+}
+
+.blog-content ol {
+  list-style: decimal;
+}
+
+.blog-content li {
+  margin: 0.4rem 0;
+  padding-left: 0.15rem;
+}
+
+.blog-content li::marker {
+  color: #e11d2e;
+}
+
+.blog-content img,
+.blog-content video,
+.blog-content iframe,
+.blog-content table {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.blog-content table {
+  display: block;
+  overflow-x: auto;
+}
+
+.blog-content blockquote {
+  margin: 1.25rem 0;
+  border-left: 3px solid #e11d2e;
+  padding: 0.35rem 0 0.35rem 1rem;
+  color: #c5cee0;
+  font-style: italic;
+}
+
+.blog-content strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.blog-content em {
+  font-style: italic;
+}
+
+.section-pad {
+  padding-block: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding-block: 4.5rem;
+  }
+}
+
+.input-field {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #dbe4f0;
+  background: #f7f9fc;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.875rem;
+  color: #0a0a0b;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #2563eb 22%, transparent);
+}
+
+.btn-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #e11d2e;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-orange:hover {
+  background: #ff2d3f;
+}
+
+.btn-orange:active {
+  transform: translateY(1px);
+}
+
+.btn-outline-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1.5px solid #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.65rem 1.35rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-outline-orange:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 40%, #e11d2e 100%);
+}
+
+@keyframes preloader-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.preloader-bar {
+  width: 45%;
+  animation: preloader-slide 1s ease-in-out infinite;
+}
+
+/* White booking card — readable dark content */
+.booking-card {
+  color: #0a0a0b;
+}
+.booking-card .booking-label {
+  color: #0a0a0b !important;
+}
+.booking-card .booking-muted {
+  color: #374151 !important;
+}
+.booking-card .booking-hint {
+  color: #4b5563 !important;
+}

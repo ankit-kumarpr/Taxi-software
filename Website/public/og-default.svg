@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#E11D2E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0A0A0B"/>
+  <rect x="0" y="0" width="1200" height="14" fill="url(#g)"/>
+  <rect x="0" y="616" width="1200" height="14" fill="url(#g)"/>
+  <text x="80" y="290" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="64" font-weight="700">TrueWay Taxi</text>
+  <text x="80" y="370" fill="#2563EB" font-family="Arial, sans-serif" font-size="34" font-weight="700">Cab Service Across India</text>
+  <text x="80" y="430" fill="#E11D2E" font-family="Arial, sans-serif" font-size="28" font-weight="700">Book Anywhere · Anytime</text>
+</svg>
