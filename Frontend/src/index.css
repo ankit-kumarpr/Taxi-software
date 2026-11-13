@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-primary-light: #f3e8ff;
+  --color-accent: #e5484d;
+  --color-accent-hover: #d93a40;
+  --color-navy: #171923;
+  --color-surface: #ffffff;
+  --color-background: #f8f9fc;
+  --color-border: #e8eaf0;
+  --color-muted: #667085;
+  --color-success: #16a36a;
+  --color-warning: #e9a23b;
+  --color-danger: #e5484d;
+  --color-info: #3182ce;
+  --font-sans: "Segoe UI", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --radius-card: 12px;
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
+}
+
+@layer base {
+  body {
+    @apply text-navy antialiased font-sans;
+    background-color: var(--color-background);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-primary) 18%, white);
+    color: var(--color-navy);
+  }
+}
+
+@layer components {
+  .ui-card {
+    @apply rounded-xl border border-border bg-surface shadow-sm;
+  }
+
+  .ui-page-title {
+    @apply text-lg font-bold tracking-tight text-navy sm:text-xl;
+  }
+
+  .ui-page-subtitle {
+    @apply mt-0.5 text-[13px] text-muted;
+  }
+
+  .ui-filter-bar {
+    @apply rounded-xl border border-border bg-surface p-3 shadow-sm;
+  }
+
+  .ui-table-wrap {
+    @apply overflow-hidden rounded-xl border border-border bg-surface shadow-sm;
+  }
+
+  .ui-table {
+    @apply min-w-full text-left text-[13px];
+  }
+
+  .ui-table thead {
+    @apply border-b border-border bg-background;
+  }
+
+  .ui-table th {
+    @apply px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-muted;
+  }
+
+  .ui-table tbody {
+    @apply divide-y divide-border/80;
+  }
+
+  .ui-table td {
+    @apply px-3 py-2.5 align-middle text-navy;
+  }
+
+  .ui-table tbody tr {
+    @apply transition-colors hover:bg-slate-50/80;
+  }
+
+  .ui-form-card {
+    @apply space-y-5 rounded-xl border border-border bg-surface p-4 shadow-sm sm:p-5;
+  }
+
+  .ui-select {
+    @apply h-9 w-full rounded-lg border border-border bg-surface px-3 text-[13px] text-navy shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .ui-textarea {
+    @apply min-h-[88px] w-full rounded-lg border border-border bg-surface px-3 py-2 text-[13px] text-navy shadow-sm outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-2 focus:ring-primary/15 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .ui-label {
+    @apply mb-1 block text-[12px] font-medium text-slate-600;
+  }
+
+  .ui-badge {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-medium;
+  }
+}
+
+.ui-rich-editor .ql-toolbar.ql-snow {
+  border: none;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  background: #f8fafc;
+  padding: 6px 8px;
+}
+
+.ui-rich-editor .ql-container.ql-snow {
+  border: none;
+  font-size: 13px;
+  min-height: 220px;
+}
+
+.ui-rich-editor .ql-editor {
+  min-height: 220px;
+  color: var(--color-navy, #0f172a);
+}
+
+.ui-rich-editor .ql-editor.ql-blank::before {
+  color: #94a3b8;
+  font-style: normal;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d0d5dd;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #98a2b3;
+}
+
+@keyframes notif-fly {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) translateX(24px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+  }
+}
+
+@keyframes notif-blink {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes notif-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.animate-notif-fly {
+  animation: notif-fly 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-notif-blink {
+  animation: notif-blink 1s ease-in-out infinite;
+}
+
+.animate-notif-progress {
+  animation: notif-progress 30s linear forwards;
+}
+
+@keyframes taxi-lane {
+  0% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(140%);
+  }
+}
+
+.animate-taxi-lane {
+  animation: taxi-lane 2.8s linear infinite;
+}
