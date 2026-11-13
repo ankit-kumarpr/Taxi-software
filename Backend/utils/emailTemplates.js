@@ -1,4 +1,4 @@
-const FRONTEND_URL = (process.env.FRONTEND_URL || "http://localhost:5173").replace(/\/$/, "");
+const FRONTEND_URL = (process.env.FRONTEND_URL || "https://taxi-software.vercel.app").replace(/\/$/, "");
 
 const escapeHtml = (value) =>
     String(value ?? "")
