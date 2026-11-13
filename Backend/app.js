@@ -47,15 +47,28 @@ app.use(
     })
 );
 
+const defaultOrigins = [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://taxi-software.vercel.app",
+    "https://taxi-software-fdfn.vercel.app",
+];
+
 const allowedOrigins = process.env.ALLOWED_ORIGINS
-    ? process.env.ALLOWED_ORIGINS.split(",").map((o) => o.trim()).filter(Boolean)
-    : ["http://localhost:3000", "http://localhost:5173"];
+    ? process.env.ALLOWED_ORIGINS.split(",").map((o) => o.trim().replace(/\/+$/, "")).filter(Boolean)
+    : defaultOrigins;
 
 app.use(
     cors({
         origin: (origin, callback) => {
             // Allow non-browser clients (Postman, server-to-server) with no Origin
-            if (!origin || allowedOrigins.includes(origin)) {
+            if (!origin) return callback(null, true);
+            const cleanOrigin = origin.trim().replace(/\/+$/, "");
+            if (
+                allowedOrigins.includes(cleanOrigin) ||
+                allowedOrigins.includes("*") ||
+                /^https:\/\/taxi-software[a-z0-9-]*\.vercel\.app$/i.test(cleanOrigin)
+            ) {
                 return callback(null, true);
             }
             return callback(new Error(`CORS policy: origin '${origin}' is not allowed`));
