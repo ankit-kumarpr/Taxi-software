@@ -1,0 +1,23 @@
+# Environment variables — NEVER commit these
+.env
+.env.*
+!.env.example
+
+# Uploaded vendor documents
+uploads/
+
+# Dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
